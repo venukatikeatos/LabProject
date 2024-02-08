@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>Patient List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Patient Name</th>
+                <th>Patient Address</th>
+                <th>Patient Gender</th>
+                <th>Patient Age</th>
+                <th>Patient Date of Birth</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over patient data and generate table rows -->
+            <ng-container *ngFor="let patient of patients">
+                <tr>
+                    <td>{{ patient.PatientID }}</td>
+                    <td>{{ patient.PatientName }}</td>
+                    <td>{{ patient.PatientAddress }}</td>
+                    <td>{{ patient.PatientGender }}</td>
+                    <td>{{ patient.PatientAge }}</td>
+                    <td>{{ patient.PatientDOB | date:'yyyy-MM-dd' }}</td>
+                    <td>
+                        <button class="btn btn-primary" (click)="modifyPatient(patient)">Modify</button>
+                        <button class="btn btn-danger" (click)="deletePatient(patient.PatientID)">Delete</button>
+                    </td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
